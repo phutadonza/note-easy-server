@@ -2,7 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 import session from 'express-session'
 import dotenv from 'dotenv'
-// import cors from 'cors'
+import cors from 'cors'
 
 import { readdirSync } from 'fs'
 
@@ -11,7 +11,7 @@ app.use(
   session({ secret: 'reactrestapi', resave: false, saveUninitialized: false })
 )
 app.use(morgan('dev'))
-//app.use(cors())
+app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
