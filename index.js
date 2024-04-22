@@ -1,9 +1,9 @@
 import express from 'express'
 import morgan from 'morgan'
 import session from 'express-session'
+import dotenv from 'dotenv'
 // import cors from 'cors'
 
-import { connection as conn } from './Config/db.js'
 import { readdirSync } from 'fs'
 
 const app = express()
@@ -21,4 +21,6 @@ files.map(async (r) => {
   app.use('/api', fs.default)
 })
 
-app.listen(5000, () => console.log('server is running on port 5000'))
+app.listen(process.env.PORT, () =>
+  console.log('server is running on port 5000')
+)
