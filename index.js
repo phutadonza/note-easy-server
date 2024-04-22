@@ -20,7 +20,5 @@ files.map(async (r) => {
   let fs = await import(`./Routes/${r}`)
   app.use('/api', fs.default)
 })
-
-app.listen(process.env.PORT, () =>
-  console.log('server is running on port 5000')
-)
+const port = process.env.PORT || 5000
+app.listen(port, () => console.log('server is running on port 5000'))
